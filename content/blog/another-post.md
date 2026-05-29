@@ -6,4 +6,4 @@ date = 2026-05-25
 tags = ["releases"]
 +++
 
-We expect to have a first public release in 2027! Please hold tight!
+We expect to have a first public release in 2028! Please hold tight!
