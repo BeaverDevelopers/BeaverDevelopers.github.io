@@ -1,4 +1,5 @@
 {% import "macros/page.html" as page_macros %}
+{% import "macros/features.html" as features_macros %}
 {% extends "base.html" %}
 
 {% block content %}
@@ -13,6 +14,7 @@
         <p>
             {{ config.description }}
         </p>
+        {{ features_macros::features_tabs(group="home-features") }}
     </section>
     <section class="index-columns">
     {% for subsec in config.extra.menu_items | filter(attribute="show_recent", value=true) %}

@@ -1,0 +1,44 @@
+{% macro features_tabs(group="features") %}
+{% if config.extra.features %}
+<section class="features-tabs" aria-label="{{ trans(key='features', lang=lang) }}">
+    <h2 class="features-tabs__heading">{{ trans(key='features', lang=lang) }}</h2>
+
+    {% for feature in config.extra.features %}
+    <input
+        class="features-tabs__input"
+        type="radio"
+        name="{{ group }}"
+        id="{{ group }}-tab-{{ loop.index }}"
+        {% if loop.first %}checked{% endif %}
+    >
+    {% endfor %}
+
+    <div class="features-tabs__nav" role="tablist">
+        {% for feature in config.extra.features %}
+        <label
+            class="features-tabs__tab"
+            for="{{ group }}-tab-{{ loop.index }}"
+            role="tab"
+            aria-controls="{{ group }}-panel-{{ loop.index }}"
+        >
+            <i class="fa-solid {{ feature.icon }}" aria-hidden="true"></i>
+            <span class="features-tabs__tab-title">{{ feature.title }}</span>
+        </label>
+        {% endfor %}
+    </div>
+
+    <div class="features-tabs__panels">
+        {% for feature in config.extra.features %}
+        <article
+            class="features-tabs__panel features-tabs__panel--{{ loop.index }}"
+            id="{{ group }}-panel-{{ loop.index }}"
+            role="tabpanel"
+        >
+            <h3 class="features-tabs__panel-title">{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{% endmacro features_tabs %}
