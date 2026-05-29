@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}{{ trans(key="team", lang=lang) }} · {{ config.title }}{% endblock title %}
+
+{% block ogp_head %}
+    <meta property="og:title" content="{{ trans(key="team", lang=lang) }} · {{ config.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ config.extra.ogp.locale }}">
+    <meta property="og:url" content="{{ page.permalink | safe }}">
+{% endblock %}
+
+{% block content %}
+<article class="post team-page">
+    <header>
+        <h1>{{ page.title }}</h1>
+    </header>
+    <div class="content">
+        {{ page.content | safe }}
+    </div>
+    {% if page.extra.members %}
+    <ul class="team-grid">
+        {% for member in page.extra.members %}
+        {% if member.linkedin != "" %}
+            {% set profile_url = member.linkedin %}
+        {% else %}
+            {% set profile_url = member.website %}
+        {% endif %}
+        <li class="team-card{% if profile_url != "" %} team-card--linked{% endif %}">
+            <h2 class="team-card__name">
+                {% if profile_url != "" %}
+                <a href="{{ profile_url | safe }}" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>
+                {% else %}
+                {{ member.name }}
+                {% endif %}
+            </h2>
+            <p class="team-card__role">{{ member.role }}</p>
+            {% if member.linkedin != "" or member.website != "" %}
+            <p class="team-card__links">
+                {% if member.linkedin != "" %}
+                <a
+                    href="{{ member.linkedin | safe }}"
+                    class="team-card__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="{{ member.name }} on LinkedIn"
+                    title="LinkedIn"
+                >
+                    <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                </a>
+                {% endif %}
+                {% if member.website != "" %}
+                <a
+                    href="{{ member.website | safe }}"
+                    class="team-card__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="{{ member.name }} personal website"
+                    title="Website"
+                >
+                    <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                </a>
+                {% endif %}
+            </p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</article>
+{% endblock content %}

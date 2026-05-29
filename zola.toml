@@ -45,6 +45,7 @@ other = "Other"
 minute = "min"
 prev_page = "To newer posts"
 next_page = "To older posts"
+features = "Features"
 # Customize your post date format. See: https://tera.netlify.app/docs/#date
 date_format = "%B %e, %Y"
 
@@ -87,3 +88,29 @@ github = "BeaverDevelopers"
 # CDN links
 [extra.cdn]
 font_awesome = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+
+# Game features shown as tabs on the home and about pages
+[[extra.features]]
+title = "Water"
+icon = "fa-water"
+description = "A semi-realistic top-down water simulation — dig channels, pool resources, and watch flow reshape the forest around your dam."
+
+[[extra.features]]
+title = "Inventory"
+icon = "fa-box-open"
+description = "A fully fledged inventory system to gather, craft, and manage everything your beaver needs to survive and rebuild."
+
+[[extra.features]]
+title = "Ecosystem"
+icon = "fa-leaf"
+description = "A simulated ecosystem where plants, animals, and the environment respond to your choices and the changing seasons."
+
+[[extra.features]]
+title = "Survival"
+icon = "fa-utensils"
+description = "Survival mechanics including hunger — plan ahead, stock food, and keep your beaver healthy while the forest recovers."
+
+[[extra.features]]
+title = "Seasons"
+icon = "fa-cloud-sun"
+description = "Seasonal changes that alter weather, resources, and challenges — adapt your strategy as the year turns."

@@ -1,4 +1,5 @@
 {% import "macros/page.html" as page_macros %}
+{% import "macros/features.html" as features_macros %}
 {% extends "base.html" %}
 
 {% block title %}{{ trans(key="about", lang=lang) }} {{config.extra.ogp.first_name}} {{config.extra.ogp.last_name}}{% endblock title %}
@@ -22,6 +23,7 @@
         </header>
         <div class="content">
             {{ page.content | safe }}
+            {{ features_macros::features_tabs(group="about-features") }}
         </div>
 </article>
 {% endblock content %}
