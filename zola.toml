@@ -29,6 +29,7 @@ taxonomies = [
 projects = "Projects"
 blog = "Blog"
 about = "About"
+team = "Team"
 recent_projects = "Recent Projects"
 more_projects = "More Projects"
 recent_blog_posts = "Recent Blog Posts"
@@ -61,6 +62,7 @@ menu_items = [
     # tag is not a zola section, it's just a link.
     { name = "tags", url = "$LANG_BASE_URL/tags" },
     { name = "about", url = "$LANG_BASE_URL/about", show_recent = false },
+    { name = "team", url = "$LANG_BASE_URL/team" },
 ]
 
 [extra.images]

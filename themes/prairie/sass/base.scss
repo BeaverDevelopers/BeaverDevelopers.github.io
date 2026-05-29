@@ -44,9 +44,6 @@ main {
     outline: none;
 }
 
-::selection {
-    background: var(--text-accent-color); /* Changes the highlight background color */
-}
 
 /* Index-specific styling */
 .index-columns {
